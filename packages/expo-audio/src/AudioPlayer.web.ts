@@ -24,7 +24,7 @@ export class AudioPlayerWeb
     this.media = this._createMediaElement();
   }
 
-  id: number = nextId();
+  id: string = nextId();
   isAudioSamplingSupported = false;
   isBuffering = false;
   shouldCorrectPitch = false;

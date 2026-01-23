@@ -3,7 +3,7 @@ import { AudioLockScreenOptions } from './AudioConstants';
 import { AudioPlayer, AudioEvents } from './AudioModule.types';
 export declare class AudioPlayerWeb extends globalThis.expo.SharedObject<AudioEvents> implements AudioPlayer {
     constructor(source: AudioSource, options?: AudioPlayerOptions);
-    id: number;
+    id: string;
     isAudioSamplingSupported: boolean;
     isBuffering: boolean;
     shouldCorrectPitch: boolean;
