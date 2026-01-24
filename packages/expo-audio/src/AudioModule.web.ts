@@ -4,6 +4,7 @@ import { AudioMode } from './Audio.types';
 import { getUserMedia } from './AudioUtils.web';
 
 export { AudioPlayerWeb } from './AudioPlayer.web';
+export { AudioPlaylistWeb } from './AudioPlaylist.web';
 export { AudioRecorderWeb } from './AudioRecorder.web';
 
 async function getPermissionWithQueryAsync(

@@ -1,6 +1,7 @@
 import { PermissionStatus } from 'expo-modules-core';
 import { getUserMedia } from './AudioUtils.web';
 export { AudioPlayerWeb } from './AudioPlayer.web';
+export { AudioPlaylistWeb } from './AudioPlaylist.web';
 export { AudioRecorderWeb } from './AudioRecorder.web';
 async function getPermissionWithQueryAsync(name) {
     if (!navigator || !navigator.permissions || !navigator.permissions.query)
