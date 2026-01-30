@@ -14,6 +14,7 @@
 ### 💡 Others
 
 - Removed needless warning when `NativeModulesProxy` is absent. ([#43020](https://github.com/expo/expo/pull/43020) by [@tsapeta](https://github.com/tsapeta))
+- Fixed view updates for Jetpack Compose integration. ([#42732](https://github.com/expo/expo/pull/42732) by [@kudo](https://github.com/kudo))
 
 ## 55.0.8 — 2026-02-08
 
