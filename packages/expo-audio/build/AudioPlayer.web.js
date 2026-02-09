@@ -1,5 +1,5 @@
 import { AUDIO_SAMPLE_UPDATE, PLAYBACK_STATUS_UPDATE } from './AudioEventKeys';
-import { getAudioContext, getSourceUri, getStatusFromMedia, nextId } from './AudioUtils.web';
+import { getAudioContext, getSourceUri, getStatusFromMedia, nextId, preloadCache, } from './AudioUtils.web';
 import { mediaSessionController } from './MediaSessionController.web';
 export class AudioPlayerWeb extends globalThis.expo.SharedObject {
     constructor(source, options = {}) {
@@ -180,6 +180,9 @@ export class AudioPlayerWeb extends globalThis.expo.SharedObject {
         this.media.load();
         getStatusFromMedia(this.media, this.id);
     }
+    release() {
+        this.remove();
+    }
     setActiveForLockScreen(active, metadata, options) {
         if (active) {
             mediaSessionController.setActivePlayer(this, metadata, options);
@@ -204,7 +207,8 @@ export class AudioPlayerWeb extends globalThis.expo.SharedObject {
     }
     _createMediaElement() {
         const newSource = getSourceUri(this.src);
-        const media = new Audio(newSource);
+        const cachedUri = newSource && preloadCache.has(newSource) ? preloadCache.get(newSource).blobUrl : newSource;
+        const media = new Audio(cachedUri);
         if (this.crossOrigin !== undefined) {
             media.crossOrigin = this.crossOrigin;
         }
