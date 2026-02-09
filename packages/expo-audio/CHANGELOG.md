@@ -6,6 +6,7 @@
 
 ### 🎉 New features
 
+- [iOS] Support native preloading. ([#43061](https://github.com/expo/expo/pull/43061) by [@alanjhughes](https://github.com/alanjhughes))
 - [iOS] Add support for `shouldRouteThroughEarpiece`. ([#43089](https://github.com/expo/expo/pull/43089) by [@alanjhughes](https://github.com/alanjhughes))
 - [Android] Make it possible to add/remove the foreground service and foreground service permissions with a config plugin. ([#43014](https://github.com/expo/expo/pull/43014) by [@behenate](https://github.com/behenate))
 - [Web] Add support for audio sampling. ([#43149](https://github.com/expo/expo/pull/43149) by [@alanjhughes](https://github.com/alanjhughes))
