@@ -274,10 +274,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ccache
-          ccache --set-config=base_dir=${{ github.workspace }}
-          ccache --set-config=hash_dir=false
-          ccache --set-config=compiler_check=content
-          ccache --set-config=sloppiness=pch_defines,time_macros,file_macro,include_file_mtime,include_file_ctime,locale
+          ccache --set-config=depend_mode=true
+          ccache --set-config=direct_mode=true
+          ccache --set-config=hard_link=true
+          ccache --set-config=max_size=1G
+          ccache --set-config=run_second_cpp=true
+          ccache --set-config=sloppiness=file_stat_matches,include_file_ctime,include_file_mtime,ivfsoverlay,modules,system_headers,time_macros
           ccache -p
       - name: Set env
         run: |
