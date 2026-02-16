@@ -5,7 +5,10 @@ import { useLinkPreviewContext } from '../../../link/preview/LinkPreviewContext'
 import type { NativeStackDescriptor, NativeStackDescriptorMap } from '../descriptors-context';
 import { usePreviewTransition } from '../usePreviewTransition';
 
-type HookProps = { state: StackNavigationState<ParamListBase>; descriptors: NativeStackDescriptorMap };
+type HookProps = {
+  state: StackNavigationState<ParamListBase>;
+  descriptors: NativeStackDescriptorMap;
+};
 
 jest.mock('../../../link/preview/LinkPreviewContext');
 
@@ -291,7 +294,8 @@ describe('usePreviewTransition', () => {
     const describe = jest.fn().mockReturnValue(previewDescriptor);
 
     const { result, rerender } = renderHook(
-      ({ state, descriptors }: HookProps) => usePreviewTransition(state, navigation, descriptors, describe),
+      ({ state, descriptors }: HookProps) =>
+        usePreviewTransition(state, navigation, descriptors, describe),
       { initialProps: { state, descriptors } as HookProps } as RenderHookOptions<HookProps>
     );
 
@@ -360,7 +364,8 @@ describe('usePreviewTransition', () => {
     const describe = jest.fn();
 
     const { result, rerender } = renderHook(
-      ({ state, descriptors }: HookProps) => usePreviewTransition(state, navigation, descriptors, describe),
+      ({ state, descriptors }: HookProps) =>
+        usePreviewTransition(state, navigation, descriptors, describe),
       { initialProps: { state, descriptors } as HookProps } as RenderHookOptions<HookProps>
     );
 
